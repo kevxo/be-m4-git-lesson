@@ -14,10 +14,10 @@ class OrdersController < ApplicationController
     if order.save
       order.create_order_items(session[:cart])
       session[:cart] = {}
-      flash[:success] = "Order was successfully placed."
+      flash[:success] = 'Order was successfully placed.'
       redirect_to orders_path
     else
-      flash[:error] = "An error occured please replace your order."
+      flash[:error] = 'An error occured please replace your order.'
       redirect_to cart_path
     end
   end
@@ -35,7 +35,8 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def check_user
-    redirect_to login_path if !current_user
+    redirect_to login_path unless current_user
   end
 end
