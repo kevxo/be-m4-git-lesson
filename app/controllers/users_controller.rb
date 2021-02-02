@@ -12,13 +12,12 @@ class UsersController < ApplicationController
       redirect_to dashboard_path(id: user.id)
       flash[:success] = "Logged in as #{user.first_name}"
     else
-      flash[:notice] = "Unable to create account!"
+      flash[:notice] = 'Unable to create account!'
       render :new
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
 
@@ -27,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def check_user
-    redirect_to login_path if !current_user
+    redirect_to login_path unless current_user
   end
 end

@@ -19,7 +19,7 @@ class Cart
 
   def decrease_quantity(id)
     quantity = (contents[id.to_s] = contents[id.to_s] - 1)
-    remove_item(id) if quantity == 0
+    remove_item(id) if quantity.zero?
   end
 
   def count_of(id)
